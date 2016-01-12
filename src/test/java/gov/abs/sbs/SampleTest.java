@@ -23,12 +23,25 @@ public class SampleTest extends MasterTest {
         // Now submit the form. WebDriver will find the form for us from the element
         element.submit();
         Assert.assertEquals("Google", driver.getTitle());
-        Assert.assertTrue(false);
 	}
 	
 	@Test
-	public void basicTest2() {
-		openBrowser(TestUser.TEST_USER_1, "http://www.yahoo.com");
+	public void basicTest2() throws IOException, InterruptedException {
+		openBrowser(TestUser.DEFAULT, "http://www.google.com");
+		
+		WebElement element = driver.findElement(By.name("q"));
+
+        // Enter something to search for
+        element.sendKeys("A Search Term");
+
+        // Now submit the form. WebDriver will find the form for us from the element
+        element.submit();
+        Assert.assertEquals("NOT Google", driver.getTitle());
+	}
+	
+	@Test
+	public void basicTest3() {
+		openBrowser(TestUser.DEFAULT, "http://www.yahoo.com");
 		
 		WebElement element = driver.findElement(By.name("p"));
 
