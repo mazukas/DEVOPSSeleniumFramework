@@ -2,9 +2,7 @@ package gov.abs.sbs;
 
 import java.io.IOException;
 
-import junit.framework.Assert;
-
-import org.junit.Rule;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -36,6 +34,9 @@ public class SampleTest extends MasterTest {
 
         // Now submit the form. WebDriver will find the form for us from the element
         element.submit();
+        System.out.println(driver.getTitle());
+        System.out.println("Google".equalsIgnoreCase("NOT Google"));
+        Assert.assertTrue(false);
         Assert.assertEquals("NOT Google", driver.getTitle());
 	}
 	

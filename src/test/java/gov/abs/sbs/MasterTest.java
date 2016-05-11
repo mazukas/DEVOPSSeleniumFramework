@@ -32,21 +32,9 @@ public abstract class MasterTest {
 	public TestFailRule testFile = new TestFailRule();
 
 	/*
-	 * Denny and company, you'll need to fill this part in once we get our test
-	 * PKI certs loaded into C2S. For now you're just going to have to use your
-	 * own certs and structure your test around that limitation.
-	 * 
-	 * Users' Roles (what role/permission does each user/profile have)
-	 * 
-	 * Default: This is whatever permissions you have in whatever systems and is
-	 * tied to the person running the test.
-	 * 
-	 * THE FOLLOWING IS JUST AN EXAMPLE OF WHAT THIS COULD LOOK LIKE Test User
-	 * 1: - iSTARS : Role G - SARA : SACO - FDF : General User
-	 * 
-	 * Test User 2: - iSTARS : Role A - SARA : Supervisor, Triager
-	 * 
-	 * Test User 3: - iSTARS : Role F - SARA : Super User, Triager - FDF : Admin
+	 * User's of this framework, below are different users you can leverage within the framework.  
+	 * Feel free to re-name as required.  By default, all users get a default profile in Fire Fox 
+	 * call 'default'.  If you want to create new profiles...... Google it.
 	 */
 	public enum TestUser {
 		DEFAULT("default"), TEST_USER_1("TestUser1"), TEST_USER_2("TestUser2"), TEST_USER_3(
@@ -67,7 +55,7 @@ public abstract class MasterTest {
 
 	/**
 	 * This is the class that should be called before each test is run. It will
-	 * set up your configuration to be used and executued against.
+	 * set up your configuration to be used and executed against.
 	 * 
 	 * @param user
 	 *            - The user that you wish to use to run this test. For now this
