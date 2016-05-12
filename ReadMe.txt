@@ -1,7 +1,7 @@
 Requirements
  - Gradle 2.5 or higher
- -Java 1.7 or higher
- - Built with Firefox 43 (version 46 appears to cause an issue and needs a different version of the Selenium framework)
+ - Java 1.7 or higher
+ - Tested with Firefox 46.01 (Selenium Web Drive 2.53.0)
  
 This framework leverages Gradle, Selenium, and some custom code to allow for automated regression test of 
 a user's system.  It will support multiple profiles so that users with different configurations 
@@ -13,4 +13,5 @@ at the time of failure and tag it in build/reports/tests/state for later review.
 
 Currently this framework has 3 test designed to demonstrate the frameworks capabilities.
 
-To demo this project, in a command window run "gradle clean test".
+To demo this project, in a command window run "gradle clean test".  Make sure you have a version of 
+Firefox installed that is compatible with Selenium Web Driver version 2.53.0.
