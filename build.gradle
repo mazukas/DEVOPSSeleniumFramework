@@ -34,12 +34,7 @@ test {
 	doLast {
 		File report = new File("build/reports/tests/index.html");
 		if (report.exists()) {
-			if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-				java.awt.Desktop.desktop.browse report.toURI()
-			} else {
-				String uri = "file://" + report.getAbsolutePath();
-				java.awt.Desktop.desktop.browse uri.toURI()
-			}
+			java.awt.Desktop.desktop.browse report.toURI()
 		}
 	}
 }
