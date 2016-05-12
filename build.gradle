@@ -23,9 +23,10 @@ dependencies {
 	compile 'org.seleniumhq.selenium:selenium-server:2.53.0'
 	compile group: 'junit', name: 'junit', version: '4.12'
     testCompile group: 'junit', name: 'junit', version: '4.12'
-	testCompile 'org.seleniumhq.selenium:selenium-server:2.48.0'
+	testCompile 'org.seleniumhq.selenium:selenium-server:2.53.0'
 }
 
+import org.apache.tools.ant.taskdefs.condition.Os
 test {
 	
 	//This has been tested and known to be working on Mac/Linux.  Windows is still a crap shoot.  If it doesn't 
@@ -33,8 +34,12 @@ test {
 	doLast {
 		File report = new File("build/reports/tests/index.html");
 		if (report.exists()) {
-			String uri = "file://" + report.getAbsolutePath();
-			java.awt.Desktop.desktop.browse uri.toURI()
+			if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+				java.awt.Desktop.desktop.browse report.toURI()
+			} else {
+				String uri = "file://" + report.getAbsolutePath();
+				java.awt.Desktop.desktop.browse uri.toURI()
+			}
 		}
 	}
 }
