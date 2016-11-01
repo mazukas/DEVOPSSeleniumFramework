@@ -32,9 +32,9 @@ public abstract class MasterTest {
 	public TestFailRule testFile = new TestFailRule();
 
 	/*
-	 * User's of this framework, below are different users you can leverage within the framework.  
+	 * Anyone using this, below are different users you can leverage within the framework.  
 	 * Feel free to re-name as required.  By default, all users get a default profile in Fire Fox 
-	 * call 'default'.  If you want to create new profiles...... Google it.
+	 * call 'default'.  If you want to learn how to create new profiles...... Google it.
 	 */
 	public enum TestUser {
 		DEFAULT("default"), TEST_USER_1("TestUser1"), TEST_USER_2("TestUser2"), TEST_USER_3(

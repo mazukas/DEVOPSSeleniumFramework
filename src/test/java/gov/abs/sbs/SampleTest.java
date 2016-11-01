@@ -34,9 +34,10 @@ public class SampleTest extends MasterTest {
 
         // Now submit the form. WebDriver will find the form for us from the element
         element.submit();
-        System.out.println(driver.getTitle());
-        System.out.println("Google".equalsIgnoreCase("NOT Google"));
-        Assert.assertTrue(false);
+
+        //This class is intended to fail to demonstrate how the framework will capture the error.  Once
+        //the test have ran check out ./build/reports/tests/state to see the screen shot and source code 
+        //of the failed test.
         Assert.assertEquals("NOT Google", driver.getTitle());
 	}
 	
