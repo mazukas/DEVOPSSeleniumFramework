@@ -21,9 +21,9 @@ import org.openqa.selenium.firefox.internal.ProfilesIni;
  * This is the base test class all automated test cases should extend. It has
  * the list of available profiles to use as well as the web drive to leverage to
  * write your test. At the end of each individual test your browser will be shut
- * down.
+ * down.  This is intentional and no one test should rely on a previous test.
  */
-public abstract class MasterTest {
+public abstract class BaseRegressionTest {
 	protected WebDriver driver;
 
 	private boolean shutDownBrowserAfterTest = true;
@@ -57,12 +57,9 @@ public abstract class MasterTest {
 	 * This is the class that should be called before each test is run. It will
 	 * set up your configuration to be used and executed against.
 	 * 
-	 * @param user
-	 *            - The user that you wish to use to run this test. For now this
-	 *            will only determine which profile to load for the test.
-	 * @param url
-	 *            - The fully qualified (http/https) url you wish to test
-	 *            against.
+	 * @param user - The user that you wish to use to run this test. For now this 
+	 * will only determine which profile to load for the test.
+	 * @param url - The fully qualified (http/https) url you wish to test against.
 	 */
 	public void openBrowser(TestUser user, String url) {
 		openBrowser(user, url, true);
@@ -91,8 +88,8 @@ public abstract class MasterTest {
 	                    if (shutDownBrowserAfterTest)
 	                    	driver.quit();
 	                    
-	                    //throw t;	// rethrow to allow the failure 
-	                    			//to be reported to JUnit, SBS Test team needs to talk about this
+	                    throw t;	// rethrow to allow the failure 
+	                    			//to be reported to JUnit
 	                }
 	            }
 

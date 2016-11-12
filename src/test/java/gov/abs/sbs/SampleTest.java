@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class SampleTest extends MasterTest {
+public class SampleTest extends BaseRegressionTest {
 
 	@Test
 	public void basicTest1() throws IOException, InterruptedException {

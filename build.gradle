@@ -26,18 +26,18 @@ dependencies {
 	testCompile 'org.seleniumhq.selenium:selenium-server:2.53.1'
 }
 
-import org.apache.tools.ant.taskdefs.condition.Os
-test {
-	
-	//This has been tested and known to be working on Mac/Linux.  Windows is still a crap shoot.  If it doesn't 
+
+
+task launchReport << {
+	//This has been tested and known to be working on Mac/Linux.  Windows is still a crap shoot.  If it doesn't
 	//work you can still open the report manually by following the path below.
-	doLast {
-		File report = new File("build/reports/tests/index.html");
-		if (report.exists()) {
-			java.awt.Desktop.desktop.browse report.toURI()
-		}
+	File report = new File("build/reports/tests/index.html");
+	if (report.exists()) {
+		java.awt.Desktop.desktop.browse report.toURI()
 	}
+
 }
+test.finalizedBy(launchReport)
 
 uploadArchives {
     repositories {
